@@ -13,6 +13,7 @@ import {
   Plus
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
@@ -38,9 +39,11 @@ export default function LeftSidebar() {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
-              <img 
+              <Image 
                 src="https://api.dicebear.com/7.x/avataaars/svg?seed=Guy" 
                 alt="Profile" 
+                width={40}
+                height={40}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -107,8 +110,13 @@ export default function LeftSidebar() {
           <div className="relative z-10">
             <div className="flex -space-x-2 mb-4">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0a0a0a] overflow-hidden">
-                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`} alt="user" />
+                <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0a0a0a] overflow-hidden relative">
+                  <Image 
+                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`} 
+                    alt="user" 
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               ))}
             </div>

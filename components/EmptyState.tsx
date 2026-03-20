@@ -92,8 +92,8 @@ export default function EmptyState({ onExampleClick }: EmptyStateProps) {
           variants={item}
           className="text-base sm:text-lg text-neutral-500 mb-16 max-w-xl mx-auto leading-relaxed font-medium"
         >
-          I'm Centra, your multi-modal AI architect. From complex refactoring to 
-          system design and rapid prototyping—let's create something extraordinary.
+          I&apos;m Centra, your multi-modal AI architect. From complex refactoring to 
+          system design and rapid prototyping—let&apos;s create something extraordinary.
         </motion.p>
  
         {/* Action Grid */}
