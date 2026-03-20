@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts import (JetBrains Mono + DM Sans) ─── */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+:root {
+  /* ─── Cyber-Architect Design Tokens V4 (Simplified) ───────────────────────── */
+  --bg-main: #050505;
+  --bg-card: #0a0a0a;
+  --bg-input: #111111;
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.4);
+  --text-main: #e5e5e5;
+  --text-muted: #737373;
+  --border-main: rgba(255, 255, 255, 0.05);
+  --radius-xl: 2rem;
+  --radius-full: 9999px;
+  --max-content-width: 900px;
+
+  /* Dimensions */
+  /* --sidebar-width: 260px; */
+  /* --right-panel-width: 320px; */
+
+  /* Utils */
+  /* --radius-xl: 2.5rem; */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  /* -webkit-font-smoothing: antialiased; */
+}
+
+/* ─── Ultra-Immersive Background ─────────────────────────────────────────── */
+.cyber-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  background: radial-gradient(circle at 50% -20%, #111 0%, #050505 100%);
+}
+
+.cyber-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+.cyber-bg::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.03) 0%, transparent 40%);
+  filter: blur(80px);
+}
+
+/* ─── Layout Utilities ───────────────────────────────────────────────────── */
+.chat-container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.glass-header {
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-main);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-main);
+  backdrop-filter: blur(10px);
+}
+
+/* ─── Typography Enhancements ────────────────────────────────────────────── */
+.prose-v4 {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #a3a3a3;
+}
+
+.prose-v4 h1, .prose-v4 h2, .prose-v4 h3 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes emerald-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.pulse-emerald {
+  animation: emerald-pulse 2s infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Grid Dashboard Shell ─── */
+/* .dashboard-grid {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--right-panel-width);
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-main);
+} */
+
+/* ─── Sidebar Containers ─── */
+/* .sidebar-panel {
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+} */
+
+/* .right-panel {
+  background: var(--bg-sidebar);
+  border-left: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+} */
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-main);
+  border-radius: 10px;
+}
+
+/* ─── Glass & Glow ─── */
+.glass-effect {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-main);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px var(--accent-emerald-glow);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px var(--accent-purple-glow);
+}
+
+/* ─── Typography overrides ─── */
+.prose-v3 {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.selection\:bg-emerald-500\/20 ::selection {
+  background: rgba(34, 197, 94, 0.2);
+  color: #fff;
+}
